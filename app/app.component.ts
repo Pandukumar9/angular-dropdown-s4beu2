@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
- class UserModel{
-    useremail:string="";
-    userconfirmemail:string;
-    password:string ;
-  }
+class UserModel {
+  useremail: string = "";
+  userconfirmemail: string;
+  password: string;
+}
 @Component({
   selector: "my-app",
   templateUrl: "./app.component.html",
