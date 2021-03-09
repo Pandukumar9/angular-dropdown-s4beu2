@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-
+ class UserModel{
+    useremail:string="";
+    userconfirmemail:string;
+    password:string ;
+  }
 @Component({
   selector: "my-app",
   templateUrl: "./app.component.html",
@@ -54,4 +58,23 @@ export class AppComponent implements OnInit {
   // toggleMe(){
   //  this.vinay = !this.vinay;
   // }
+  title = "questionbank";
+  UserData: UserModel[] = [];
+  UserItem: UserModel = new UserModel();
+  OnCopy(data: any) {
+    alert(data);
+    //    this.userconfirmemail=this.useremail;
+  }
+
+  OnEmailCheck(email: string, confirmemail: string) {
+    if (email == confirmemail) {
+      alert("email are matched");
+    } else {
+      alert("email are not matched");
+    }
+  }
+  OnAdd() {
+    this.UserItem = new UserModel();
+    this.UserData.push(this.UserItem);
+  }
 }

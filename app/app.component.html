@@ -25,7 +25,6 @@
 
 <br><br> -->
 
-
 <!-- <button type="button" (click)="toggleMe()">click</button>
 {{vinay}} -->
 <!-- event binding -->
@@ -68,4 +67,64 @@
         <h2>here we can display data by using Interpolation:&nbsp;&nbsp;{{data}}</h2>
         <br> -->
 <!-- <app-test></app-test> -->
-<app-pipes></app-pipes>
+<!-- <app-pipes></app-pipes> -->
+<router-outlet></router-outlet>
+
+<div class="container">
+  <h2>Stacked form</h2>
+  <ng-container *ngFor="let item of UserData">
+    <div style="border: 1px solid black;margin-bottom: 15px;">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter email"
+          [(ngModel)]="item.useremail"
+          name="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Confirm Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email1"
+          placeholder="Enter email"
+          [(ngModel)]="item.userconfirmemail"
+          name="email1"
+        />
+        <button type="button" class="btn btn-primary" (click)="OnCopy(10)">
+          Copy
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="OnEmailCheck(item.useremail,item.userconfirmemail)"
+        >
+          Check
+        </button>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="pwd"
+          placeholder="Enter password"
+          [(ngModel)]="item.password"
+          name="pswd"
+        />
+      </div>
+      <div class="form-group form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" name="remember" />
+          Remember me
+        </label>
+      </div>
+    </div>
+  </ng-container>
+  <button type="submit" class="btn btn-primary" (click)="OnAdd()">Add</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
